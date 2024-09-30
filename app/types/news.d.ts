@@ -8,6 +8,7 @@ export type News = {
   created_at: string;
   updated_at: string;
   creator: NewsCreator;
+  category: NewsCategory;
 };
 
 type NewsCategory = {

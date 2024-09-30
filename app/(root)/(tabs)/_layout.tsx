@@ -3,7 +3,6 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import React from "react";
 import Category from "./category";
 import Feed from "./feed";
-import Profile from "./profile";
 
 const Tab = createBottomTabNavigator();
 
@@ -44,7 +43,7 @@ const Layout = () => {
         }}
       />
 
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Welcome"
         component={Profile}
         options={{
@@ -57,7 +56,7 @@ const Layout = () => {
             />
           ),
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

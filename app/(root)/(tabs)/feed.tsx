@@ -10,7 +10,7 @@ import {
   ScrollView,
 } from "react-native-gesture-handler";
 
-const Feed = () => {
+const Feed = ({ navigation }: any) => {
   const categories = useQueryCategory();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const result = useQueryNews(selectedCategory ?? ""); // Ensure valid initial fetch
@@ -27,6 +27,11 @@ const Feed = () => {
   if (result.isLoading) {
     return <></>; // Consider adding a loading spinner or message
   }
+
+  const handleReadMore = (url: string) => {
+    // Handle navigation to the detail screen
+    navigation.navigate("Detail", { url });
+  };
 
   return (
     <GestureHandlerRootView className="flex-1 bg-black px-4">
