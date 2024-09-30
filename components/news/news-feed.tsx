@@ -9,11 +9,11 @@ interface Props {
 const NewsFeed = ({
   newsItem: { title, summary, image_link, published_at, creator },
 }: Props) => {
-  const NAVBAR_HEIGHT = 20;
+  const NAVBAR_HEIGHT = 16;
   const { height } = useWindowDimensions();
   return (
     <View className="bg-blue" style={{ height: height - NAVBAR_HEIGHT }}>
-      <View className=" rounded-2xl border border-gray-700 shadow-2xl overflow-hidden bg-darkNavy">
+      <View className=" rounded-2xl border border-gray-700 shadow-2xl  bg-darkNavy ">
         <View className="h-1/2 w-full">
           <Image
             className="w-full h-full"

@@ -10,6 +10,13 @@ export type News = {
   creator: NewsCreator;
 };
 
+type NewsCategory = {
+  id: string;
+  name: string;
+  created_at: string;
+  updated_at: string;
+};
+
 type NewsCreator = {
   id: string;
   name: string;
