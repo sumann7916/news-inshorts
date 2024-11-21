@@ -1,4 +1,5 @@
 import { useQueryLatestNews } from "@/app/hooks/use-query-latest-news";
+import { router } from "expo-router";
 import React from "react";
 import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import {
@@ -6,8 +7,12 @@ import {
   ScrollView,
 } from "react-native-gesture-handler";
 
-const Category = ({ navigation }: any) => {
+const Category = () => {
   const latestAricles = useQueryLatestNews();
+
+  if (latestAricles.isLoading) {
+    return <Text>Loading...</Text>;
+  }
   return (
     <GestureHandlerRootView className="h-screen py-8 px-4">
       <View>
@@ -18,7 +23,10 @@ const Category = ({ navigation }: any) => {
             <TouchableOpacity
               key={article.id}
               onPress={() =>
-                navigation.navigate("Detail", { url: article.original_link })
+                router.push({
+                  pathname: "/(root)/detail",
+                  params: { url: article.original_link },
+                })
               }
             >
               <View className="flex flex-row mb-8 px-4 ">
@@ -31,11 +39,7 @@ const Category = ({ navigation }: any) => {
                   <Text numberOfLines={2} className="text-xl mb-2 ">
                     {article.title}
                   </Text>
-                  <Text
-                    numberOfLines={3}
-                    className="text-md 
-              "
-                  >
+                  <Text numberOfLines={3} className="text-md">
                     {article.summary}
                   </Text>
                 </View>

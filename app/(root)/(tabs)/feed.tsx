@@ -1,7 +1,9 @@
 import { useQueryCategory } from "@/app/hooks/use-query-categories";
 import { useQueryNews } from "@/app/hooks/use-query-news";
 import { News } from "@/app/types/news";
+import Loading from "@/components/loading";
 import NewsFeed from "@/components/news/news-feed";
+import { router } from "expo-router";
 import React, { useEffect, useState } from "react";
 import { Text, TouchableWithoutFeedback, View } from "react-native";
 import {
@@ -25,12 +27,15 @@ const Feed = ({ navigation }: any) => {
   }, [categories.data]);
 
   if (result.isLoading) {
-    return <></>; // Consider adding a loading spinner or message
+    return <Loading />; // Consider adding a loading spinner or message
   }
 
   const handleReadMore = (url: string) => {
     // Handle navigation to the detail screen
-    navigation.navigate("Detail", { url });
+    router.push({
+      pathname: "/detail",
+      params: { url },
+    });
   };
 
   return (
@@ -62,7 +67,9 @@ const Feed = ({ navigation }: any) => {
         <View style={{ flex: 1 }}>
           <FlatList
             data={result.data ?? ([] as News[])}
-            renderItem={({ item }) => <NewsFeed newsItem={item} />}
+            renderItem={({ item }) => (
+              <NewsFeed newsItem={item} onReadMore={handleReadMore} />
+            )}
             keyExtractor={(item) => item.id.toString()}
             pagingEnabled
           />

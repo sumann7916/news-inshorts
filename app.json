@@ -16,10 +16,12 @@
       "supportsTablet": true
     },
     "android": {
+  
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "foregroundImage": "./assets/images/favicon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.suman324.newsinshorts"
     },
     "web": {
       "bundler": "metro",
@@ -31,6 +33,11 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ea746750-66b7-4175-a021-bb696afa858c"
+      }
     }
   }
 }

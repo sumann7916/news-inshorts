@@ -1,15 +1,28 @@
 import { News } from "@/app/types/news";
 import React from "react";
-import { Image, Text, useWindowDimensions, View } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
+import {
+  Image,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+} from "react-native";
 
 interface Props {
   readonly newsItem: News;
-  readonly onReadMore?: () => void;
+  readonly onReadMore: (url: string) => void;
 }
 
 const NewsFeed = ({
-  newsItem: { title, summary, image_link, published_at, creator, category },
+  newsItem: {
+    title,
+    summary,
+    image_link,
+    original_link,
+    published_at,
+    creator,
+    category,
+  },
   onReadMore,
 }: Props) => {
   const NAVBAR_HEIGHT = 16;
@@ -38,7 +51,13 @@ const NewsFeed = ({
             Source: {creator.name}
           </Text>
 
-          <TouchableOpacity onPress={onReadMore}>
+          <TouchableOpacity
+            onPress={(event) => {
+              event.preventDefault();
+              event.stopPropagation();
+              onReadMore(original_link);
+            }}
+          >
             <Text className="text-brand font-JakartaBold">Read More</Text>
           </TouchableOpacity>
         </View>

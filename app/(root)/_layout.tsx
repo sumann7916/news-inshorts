@@ -9,6 +9,7 @@ const Layout = () => {
     <QueryClientProvider client={queryClient}>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="detail" options={{ headerStyle: false }} />
       </Stack>
     </QueryClientProvider>
   );
