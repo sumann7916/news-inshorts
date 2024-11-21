@@ -1,6 +1,17 @@
-# Welcome to your Expo app 👋
+
+
+
+
+# Welcome to News InShorts App 👋
+This app provides summarized version of news articles from different news site. 
+When running this site, you might need to setup additional config for connecting to localhost. For immediate fix, I hosted on server on different route using ngrok. Add that `BASE_API_URL` to `.env` file.
+The backend for this site is written in Django and available [here](https://github.com/sumann7916/news-backend).
+
+
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+
+
 
 ## Get started
 
@@ -13,7 +24,8 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
 2. Start the app
 
    ```bash
-    npx expo start
+     cp env.example .env
+     npx expo start
    ```
 
 In the output, you'll find options to open the app in a
@@ -24,6 +36,18 @@ In the output, you'll find options to open the app in a
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+
+![Image 1](https://github.com/user-attachments/assets/fc38184e-04a6-4727-97df-0a2a92dcea7e)
+&nbsp;&nbsp;&nbsp;
+![Image 2](https://github.com/user-attachments/assets/fb67633e-d6cd-4b92-9ec6-73587761e553)
+&nbsp;&nbsp;&nbsp;
+![Image 3](https://github.com/user-attachments/assets/0076e0c4-b2f2-4bea-9818-d0166011e314)
+
+
+
+
+
+
 
 ## Get a fresh project
 
